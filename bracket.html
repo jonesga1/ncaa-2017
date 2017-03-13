@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>NCAA 2017</title>
+</head>
+<style>
+  h1 {
+    text-align: center;
+  }
+  h2 {
+    padding-left: 2rem;
+  }
+  .math {
+    font-size: 1.5rem;
+    padding: 1rem;
+    color: #444;
+    padding-bottom: 1rem;
+    text-align: center;
+  }
+  hr {
+    width: 25%;
+  }
+  p {
+    text-align: center;
+    font-size: 1.25rem;
+  }
+  td, th {
+    border: 1px solid gray;
+    padding: 0.5rem 1rem;
+    font-size: 1.1rem;
+  }
+  th {
+    background: #dedede;
+  }
+  table {
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+  }
+</style>
+<body>
+  <h1>Bracketology</h1>
+
+  <h2>Data</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Term</th>
+        <th>Name</th>
+        <th>Definition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>$$AdjEm$$</td>
+        <td>Adjusted Efficiency Margin</td>
+        <td>How many points a team is expected to outscore an average opponent on a neutral court. Based on offensive and defensive efficiencies. Adjusted for strength of schedule.</td>
+      </tr>
+      <tr>
+        <td>$$AdjT$$</td>
+        <td>Adjusted Tempo</td>
+        <td>How many possessions averaged per 40 minutes.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Equations</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Term</th>
+        <th>Name</th>
+        <th>Definition</th>
+        <th>Equation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>$$PD_{AB}$$</td>
+        <td>Point Differential A Over B</td>
+        <td>The predicted number of points that team A would beat team B by if they were to play.</td>
+        <td class="math">$$PD_{AB} = \frac{(AdjEm_{A}-AdjEm_{B})(AdjT_{A} + AdjT_{B})}{200}$$</td>
+      </tr>
+      <tr>
+        <td>$$WP_{AB}$$</td>
+        <td>Winning Percentage A Over B</td>
+        <td>The predicted probability that team A would beat team B if they were to play.</td>
+        <td class="math">$$WP_{AB} = \frac{1 + erf(-PD_{AB})}{22\sqrt{2}}$$</td>
+      </tr>
+      <tr>
+        <td>$$erf(x)$$</td>
+        <td><a href="https://en.wikipedia.org/wiki/Error_function">Gauss Error Function</a></td>
+        <td>A sigmoid shaped function that describes diffusion. Models the normal distribution of game outcomes.</td>
+        <td>Standard implementations are available for most languages.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+</body>
+</html>
